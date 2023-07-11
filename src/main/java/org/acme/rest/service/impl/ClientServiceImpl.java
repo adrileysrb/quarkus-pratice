@@ -3,40 +3,47 @@ package org.acme.rest.service.impl;
 import java.util.List;
 
 import org.acme.persistence.model.Client;
+import org.acme.persistence.repository.ClientRepository;
 import org.acme.rest.service.ClientService;
 
+import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class ClientServiceImpl implements ClientService{
 
+    @Inject
+    private ClientRepository clientRepository;
+
     @Override
     public List<Client> findAll() {
-      return null;
+      return this.clientRepository.findAll().list();
     }
 
     @Override
-    public List<Client> findById(String query, String sort, Integer pageIndex, Integer pageSize) {
+    public List<Client> find(String query, String sort, Integer pageIndex, Integer pageSize) {
+        return this.clientRepository.find(query, Sort.by(sort)).page(pageIndex, pageSize).list();
+    }
+
+    @Override
+    public Client findById(long id) {
+        return this.clientRepository.findById(id);
+    }
+
+    @Override
+    public Client save(Client client) {
         return null;
     }
 
     @Override
-    public Client findById(short id) {
-        return null;
-    }
-
-    @Override
-    public Client save(Client artist) {
-        return null;
-    }
-
-    @Override
-    public Client update(Client artist) {
+    public Client update(Client client) {
         return null;
     }
 
     @Override
     public void deleteById(long id) {
+        this.clientRepository.deleteById(id);
     }
     
 }
