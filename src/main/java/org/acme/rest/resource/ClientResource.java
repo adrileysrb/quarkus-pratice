@@ -1,14 +1,9 @@
 package org.acme.rest.controller;
 
+import jakarta.ws.rs.;
 import org.acme.rest.service.ClientService;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.DefaultValue;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -34,5 +29,26 @@ public class ClientController {
 
     ){
         return Response.ok(clientService.find(query, sort, pageIndex, pageSize)).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Response findById(@PathParam("id") long id){
+        return Response.ok(this.clientService.findById(id)).build();
+    }
+
+    @PUT
+    public Response update(){
+        return Response.ok(this.clientService.findAll()).build();
+    }
+
+    @POST
+    public Response persist(){
+        return Response.ok(this.clientService.findAll()).build();
+    }
+
+    @DELETE
+    public Response delete(){
+        return Response.ok(this.clientService.findAll()).build();
     }
 }
