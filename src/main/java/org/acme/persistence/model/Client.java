@@ -2,19 +2,20 @@ package org.acme.persistence.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-@Entity(name = "Client")
+@Entity
 @Table(name ="client")
 @Data
-public class ClientEntity {
+public class Client implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotEmpty
+    @NotNull(message = "Id is required!")
     @Column(name = "id", nullable=false)
     private Short id;
 

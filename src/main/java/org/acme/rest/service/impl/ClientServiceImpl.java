@@ -32,13 +32,24 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Client save(Client client) {
-        return null;
+    public void save(Client client) {
+        this.clientRepository.persist(client);
     }
 
     @Override
-    public Client update(Client client) {
-        return null;
+    public void update(Client client) {
+        Client c = this.findById(client.getId());
+        c.setCity(client.getCity());
+        c.setEmail(client.getEmail());
+        c.setGender(client.getGender());
+        c.setCountry(client.getCountry());
+        c.setFirstName(client.getFirstName());
+        c.setPhone(client.getPhone());
+        c.setPostalCode(client.getPostalCode());
+        c.setLastName(client.getLastName());
+        c.setStreetName(client.getStreetName());
+
+        this.clientRepository.persist(c);
     }
 
     @Override
