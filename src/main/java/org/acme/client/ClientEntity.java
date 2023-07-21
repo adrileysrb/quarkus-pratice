@@ -1,23 +1,20 @@
-package org.acme.persistence.model;
+package org.acme.client;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.Data;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-
-@Entity
+@Entity(name = "Client")
 @Table(name ="client")
 @Data
-public class Client implements Serializable{
+public class ClientEntity implements Serializable{
 
     @Id
-    @NotNull(message = "Id is required!")
-    @Column(name = "id", nullable=false)
-    private Short id;
+    @NotEmpty
+    @Column(name = "client_id", nullable=false)
+    private Short clientId;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -46,3 +43,4 @@ public class Client implements Serializable{
     @Column(name = "phone", nullable = false)
     private String phone;
 }
+

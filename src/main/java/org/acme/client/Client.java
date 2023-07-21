@@ -1,15 +1,13 @@
-package org.acme.persistence.dto;
+package org.acme.client;
 
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class CreateClientRequest {
-    
-    private Short id;
+public class Client {
+
+    @NotEmpty
+    private Short clientId;
     private String firstName;
     private String lastName;
     private String email;
@@ -19,4 +17,5 @@ public class CreateClientRequest {
     private String city;
     private String postalCode;
     private String phone;
+
 }
