@@ -3,6 +3,7 @@ package org.acme.shoe;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import java.io.Serializable;
 
@@ -29,4 +30,6 @@ public class ShoeEntity implements Serializable {
     @Column(name = "price", nullable = false)
     private double price;
 
+    public void delete() {
+    }
 }

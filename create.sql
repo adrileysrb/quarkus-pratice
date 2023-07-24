@@ -1000,3 +1000,5 @@ insert into CLIENT (client_id, first_name, last_name, email, gender, street_name
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (998, 'Hatti', 'Huet', 'hhuetrp@cisco.com', 'Female', 'Northland', 'United States', 'Milwaukee', '53225', '(414) 5492198');
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (999, 'Siegfried', 'Callender', 'scallenderrq@prweb.com', 'Male', 'Mosinee', 'United States', 'Wichita', '67210', '(316) 4306959');
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (1000, 'Gibbie', 'Leonard', 'gleonardrr@devhub.com', 'Male', 'Sunbrook', 'United States', 'Garden Grove', '92645', '(559) 7851930');
+insert into SHOE (shoe_id, line, reference, size, price) values (1,'DEVON', 'C5693', 41, 260);
+insert into SHOE (shoe_id, line, reference, size, price) values (2,'NIKE', 'AIR FORCE', 39, 750);

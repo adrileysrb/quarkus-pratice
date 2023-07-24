@@ -1,8 +1,9 @@
 package org.acme.shoe;
 
+import com.oracle.svm.core.annotate.Inject;
+import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class ShoeService {
     private final ShoeRepository shoeRepository;
     private final ShoeMapper shoeMapper;
+    private EntityManager entityManager;
 
     public List<ShoeDTO> findAll() {
         return this.shoeMapper.toDomainList(shoeRepository.findAll().list());
@@ -47,6 +49,18 @@ public class ShoeService {
         shoeMapper.updateEntityFromDomain(shoeDTO, entity);
         shoeRepository.persist(entity);
         shoeMapper.updateDomainFromEntity(entity, shoeDTO);
+    }
+
+
+
+    @Transactional
+    public boolean delete(Short shoeId) {
+        ShoeEntity shoe = entityManager.find(ShoeEntity.class, shoeId);
+        if (shoe != null) {
+            entityManager.remove(shoe);
+            return true;
+        }
+        return false;
     }
 
 }

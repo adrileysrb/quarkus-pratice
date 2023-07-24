@@ -1,3 +1,6 @@
+/*
+CLIENT TABLE
+*/
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (1, 'Eleonore', 'Benford', 'ebenford0@histats.com', 'Female', 'Dahle', 'United States', 'Baton Rouge', '70826', '(225) 6769366');
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (2, 'Anica', 'Tennock', 'atennock1@techcrunch.com', 'Female', 'Baysclient_ide', 'United States', 'Grand Rapclient_ids', '49518', '(616) 5243027');
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (3, 'Pernell', 'Brunskill', 'pbrunskill2@pcworld.com', 'Male', 'Talmadge', 'United States', 'Vienna', '22184', '(571) 4711697');
@@ -998,3 +1001,9 @@ insert into CLIENT (client_id, first_name, last_name, email, gender, street_name
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (998, 'Hatti', 'Huet', 'hhuetrp@cisco.com', 'Female', 'Northland', 'United States', 'Milwaukee', '53225', '(414) 5492198');
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (999, 'Siegfried', 'Callender', 'scallenderrq@prweb.com', 'Male', 'Mosinee', 'United States', 'Wichita', '67210', '(316) 4306959');
 insert into CLIENT (client_id, first_name, last_name, email, gender, street_name, country, city, postal_code, phone) values (1000, 'Gibbie', 'Leonard', 'gleonardrr@devhub.com', 'Male', 'Sunbrook', 'United States', 'Garden Grove', '92645', '(559) 7851930');
+
+/*
+SHOE TABLE
+*/
+insert into SHOE (shoe_id, line, reference, size, price) values (1,'DEVON', 'C5693', 41, 260);
+insert into SHOE (shoe_id, line, reference, size, price) values (2,'NIKE', 'AIR FORCE', 39, 750);

@@ -144,4 +144,15 @@ public class ShoeResource {
         ShoeService.update(shoeDTO);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
+    @DELETE
+    @Path("/{shoeId}")
+    public Response delete(@PathParam("shoeId") Short shoeId) {
+        boolean deleted = ShoeService.delete(shoeId);
+        if (deleted) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
 }

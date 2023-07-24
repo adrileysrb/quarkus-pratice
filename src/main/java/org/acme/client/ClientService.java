@@ -1,5 +1,6 @@
 package org.acme.client;
 
+import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.acme.exception.ServiceException;
+import org.acme.shoe.ShoeEntity;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +21,7 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
+    private EntityManager entityManager;
 
     public List<Client> findAll() {
         return this.clientMapper.toDomainList(clientRepository.findAll().list());
@@ -50,4 +53,13 @@ public class ClientService {
         clientMapper.updateDomainFromEntity(entity, client);
     }
 
+    @Transactional
+    public boolean delete(Short clientId) {
+        ClientEntity client = entityManager.find(ClientEntity.class, clientId);
+        if (client != null) {
+            entityManager.remove(client);
+            return true;
+        }
+        return false;
+    }
 }
